@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 class MainApp {
     static void Main() {
+        // init game
         GameScreen myGame = new GameScreen(30, 20);
 
+        // fill game with game data.
         myGame.SetHero(new Hero(5, 5, "HERO"));
 
         Random rnd = new Random();
@@ -14,19 +16,34 @@ class MainApp {
             enemyCount++;
         }
 
-        myGame.Render();
+        // render loop
+        bool needToRender = true;
 
-        myGame.GetHero().MoveLeft();
-        myGame.MoveAllEnemiesDown();
+        do {
+            // isvalom ekrana
+            Console.Clear();
 
-        Enemy secondEnemy = myGame.getEnemyById(1);
-        if (secondEnemy != null) {
-            secondEnemy.MoveDown();
-        }
+            while (Console.KeyAvailable) {
+                ConsoleKeyInfo pressedChar = Console.ReadKey(true);
+                int hashCode = pressedChar.Key.GetHashCode();
 
-        myGame.Render();
+                switch (hashCode) {
+                    case 27: //ConsoleKey.Escape:
+                        needToRender = false;
+                        break;
+                    case 39: // ConsoleKey.RightArrow:
+                        myGame.GetHero().MoveRight();
+                        break;
+                    case 37: // ConsoleKey.LeftArrow:
+                        myGame.GetHero().MoveLeft();
+                        break;
+                }
+            }
 
-        Console.ReadKey();
+            myGame.Render();
+
+            System.Threading.Thread.Sleep(250);
+        } while (needToRender);
     }
 }
 
