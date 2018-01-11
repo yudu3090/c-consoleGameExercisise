@@ -3,32 +3,79 @@ using System.Collections.Generic;
 
 class MainApp {
     static void Main() {
-        int enemyCount = 0;
-        Random rnd = new Random();
+        GameScreen myGame = new GameScreen(30, 20);
 
-        Hero myHero = new Hero(5, 5, "HERO");
-        List<Enemy> enemies = new List<Enemy>();
+        myGame.SetHero(new Hero(5, 5, "HERO"));
+
+        Random rnd = new Random();
+        int enemyCount = 0;
         for (int i = 0; i < 10; i++) {
-            enemies.Add(new Enemy(enemyCount, rnd.Next(0, 10), rnd.Next(0, 10), "enemy" + enemyCount));
+            myGame.AddEnemy(new Enemy(enemyCount, rnd.Next(0, 10), rnd.Next(0, 10), "enemy" + enemyCount));
             enemyCount++;
         }
 
-        myHero.PrintInfo();
+        myGame.Render();
+
+        myGame.GetHero().MoveLeft();
+        myGame.MoveAllEnemiesDown();
+
+        Enemy secondEnemy = myGame.getEnemyById(1);
+        if (secondEnemy != null) {
+            secondEnemy.MoveDown();
+        }
+
+        myGame.Render();
+
+        Console.ReadKey();
+    }
+}
+
+
+class GameScreen {
+    private int width;
+    private int height;
+
+    private Hero hero;
+    private List<Enemy> enemies = new List<Enemy>();
+
+    public GameScreen(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public void SetHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void AddEnemy(Enemy enemy) {
+        enemies.Add(enemy);
+    }
+
+    public void Render() {
+        hero.PrintInfo();
         foreach (Enemy enemy in enemies) {
             enemy.PrintInfo();
         }
+    }
 
-        myHero.MoveLeft();
+    public Hero GetHero() {
+        return hero;
+    }
+
+    public void MoveAllEnemiesDown() {
         foreach (Enemy enemy in enemies) {
             enemy.MoveDown();
         }
+    }
 
-        myHero.PrintInfo();
+    public Enemy getEnemyById(int id) {
         foreach (Enemy enemy in enemies) {
-            enemy.PrintInfo();
+            if (enemy.GetId() == id) {
+                return enemy;
+            }
         }
 
-        Console.ReadKey();
+        return null;
     }
 }
 
@@ -80,4 +127,7 @@ class Enemy {
         Console.WriteLine($" Enemy {name} is at {x}x{y}");
     }
 
+    public int GetId() {
+        return id;
+    }
 }
