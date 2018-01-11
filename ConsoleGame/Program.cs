@@ -79,16 +79,27 @@ class GameScreen {
     }
 }
 
-class Hero {
 
-    private int x;
-    private int y;
+class Unit {
+
+    protected int x;
+    protected int y;
     private string name;
 
-    public Hero(int x, int y, string name) {
+    public Unit(int x, int y, string name) {
         this.x = x;
         this.y = y;
         this.name = name;
+    }
+
+    public void PrintInfo() {
+        Console.WriteLine($" Unit {name} is at {x}x{y}");
+    }
+}
+
+class Hero : Unit {
+
+    public Hero(int x, int y, string name) : base(x, y, name) {
     }
 
     public void MoveRight() {
@@ -98,33 +109,19 @@ class Hero {
     public void MoveLeft() {
         x--;
     }
-
-    public void PrintInfo() {
-        Console.WriteLine($" Hero {name} is at {x}x{y}");
-    }
 }
 
 
-class Enemy {
+class Enemy : Unit {
+
     private int id;
-    private int x;
-    private int y;
-    private string name;
 
-
-    public Enemy(int id, int x, int y, string name) {
+    public Enemy(int id, int x, int y, string name) : base(x, y, name) {
         this.id = id;
-        this.x = x;
-        this.y = y;
-        this.name = name;
     }
 
     public void MoveDown() {
         y++;
-    }
-
-    public void PrintInfo() {
-        Console.WriteLine($" Enemy {name} is at {x}x{y}");
     }
 
     public int GetId() {
