@@ -1,0 +1,10 @@
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\bin\Debug\netcoreapp2.0\ConsoleGame.deps.json
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\bin\Debug\netcoreapp2.0\ConsoleGame.runtimeconfig.json
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\bin\Debug\netcoreapp2.0\ConsoleGame.runtimeconfig.dev.json
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\bin\Debug\netcoreapp2.0\ConsoleGame.dll
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\bin\Debug\netcoreapp2.0\ConsoleGame.pdb
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\obj\Debug\netcoreapp2.0\ConsoleGame.csproj.CoreCompileInputs.cache
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\obj\Debug\netcoreapp2.0\ConsoleGame.AssemblyInfoInputs.cache
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\obj\Debug\netcoreapp2.0\ConsoleGame.AssemblyInfo.cs
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\obj\Debug\netcoreapp2.0\ConsoleGame.dll
+C:\Users\Deril\RiderProjects\ConsoleGame\ConsoleGame\obj\Debug\netcoreapp2.0\ConsoleGame.pdb
