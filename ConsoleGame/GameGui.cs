@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class GameWindow : Window {
+sealed class GameWindow : Window {
 
     private Button startButton;
     private Button creditsButton;
@@ -22,7 +22,7 @@ class GameWindow : Window {
         Render();
     }
 
-    public void Render() {
+    public override void Render() {
         base.Render();
 
         titleTextBlock.Render();
@@ -35,7 +35,7 @@ class GameWindow : Window {
     }
 }
 
-class CreditWindow : Window {
+sealed class CreditWindow : Window {
 
     private Button backButton;
 
@@ -67,7 +67,7 @@ class CreditWindow : Window {
         Render();
     }
 
-    public void Render() {
+    public override void Render() {
         base.Render();
         creditTextBlock.Render();
         backButton.Render();
@@ -91,7 +91,7 @@ class Window : GuiObject {
         border = new Frame(x, y, width, height, borderChar);
     }
 
-    public void Render() {
+    public override void Render() {
         border.Render();
     }
 }
@@ -112,7 +112,7 @@ class Button : GuiObject {
         textLine = new TextLine(x + 1, y + 1 + ((height - 2) / 2), width - 2, buttonText);
     }
 
-    public void Render() {
+    public override void Render() {
         if (isActive) {
             activeFrame.Render();
         } else {
@@ -137,7 +137,7 @@ sealed class TextBlock : GuiObject {
         }
     }
 
-    public void Render() {
+    public override void Render() {
         for (int i = 0; i < textBlocks.Count; i++) {
             textBlocks[i].Render();
         }
@@ -152,7 +152,7 @@ class TextLine : GuiObject {
         _data = data;
     }
 
-    public void Render() {
+    public override void Render() {
         Console.SetCursorPosition(_x, _y);
         if (_width > _data.Length) {
             int offset = (_width - _data.Length) / 2;
@@ -174,7 +174,7 @@ class Frame : GuiObject {
     }
 
 
-    public void Render() {
+    public override void Render() {
         for (int i = 0; i < _height; i++) {
             Console.SetCursorPosition(_x, _y + i);
             if (i == 0 || i == _height - 1) {
@@ -193,7 +193,7 @@ class Frame : GuiObject {
     }
 }
 
-class GuiObject {
+abstract class GuiObject {
     protected int _x;
     protected int _y;
     protected int _width;
@@ -205,4 +205,7 @@ class GuiObject {
         _width = width;
         _height = height;
     }
+
+    public abstract void Render();
+
 }
