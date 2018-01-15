@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 
 class MainApp {
     static void Main() {
+        Console.CursorVisible = false;
+        GameWindow gameWindow = new GameWindow();
+        CreditWindow creditWindow = new CreditWindow();
+        Console.ReadKey();
     }
 
     static void StartGame() {
