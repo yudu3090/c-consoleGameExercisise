@@ -1,14 +1,23 @@
-﻿using System;
+﻿using ConsoleGame.Game;
+using ConsoleGame.View;
+using System;
 
-class MainApp {
-    static void Main() {
+class MainApp
+{
+    static void Main()
+    {
         Console.CursorVisible = false;
         GameWindow gameWindow = new GameWindow();
         CreditWindow creditWindow = new CreditWindow();
         Console.ReadKey();
+
+        StartGame();
+        Console.ReadKey();
+
     }
 
-    static void StartGame() {
+    static void StartGame()
+    {
         // init game
         GameScreen myGame = new GameScreen(30, 20);
 
@@ -17,7 +26,8 @@ class MainApp {
 
         Random rnd = new Random();
         int enemyCount = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 10; i++)
+        {
             myGame.AddEnemy(new Enemy(enemyCount, rnd.Next(0, 10), rnd.Next(0, 10), "enemy" + enemyCount));
             enemyCount++;
         }
@@ -25,15 +35,18 @@ class MainApp {
         // render loop
         bool needToRender = true;
 
-        do {
+        do
+        {
             // isvalom ekrana
             Console.Clear();
 
-            while (Console.KeyAvailable) {
+            while (Console.KeyAvailable)
+            {
                 ConsoleKeyInfo pressedChar = Console.ReadKey(true);
                 int hashCode = pressedChar.Key.GetHashCode();
 
-                switch (hashCode) {
+                switch (hashCode)
+                {
                     case 27: //ConsoleKey.Escape:
                         needToRender = false;
                         break;
