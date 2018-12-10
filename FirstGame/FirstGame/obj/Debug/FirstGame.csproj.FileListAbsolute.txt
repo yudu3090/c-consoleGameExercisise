@@ -1,0 +1,7 @@
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\bin\Debug\FirstGame.exe.config
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\bin\Debug\FirstGame.exe
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\bin\Debug\FirstGame.pdb
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\obj\Debug\FirstGame.csproj.CoreCompileInputs.cache
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\obj\Debug\FirstGame.exe
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\obj\Debug\FirstGame.pdb
+C:\Users\Yuliya\Documents\cSharpCoursePractice\FirstGame\FirstGame\FirstGame\obj\Debug\FirstGame.csprojAssemblyReference.cache
